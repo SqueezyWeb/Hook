@@ -1,0 +1,25 @@
+launguage: php
+php:
+	- '5.3'
+	- '5.4'
+	- '5.5'
+	- '5.6'
+	- '7.0'
+	- 'nightly'
+
+before_install:
+	- sudo apt-get install -y graphviz
+	- phpenv config-add xsl.ini
+
+install:
+	- composer install
+
+before_script:
+	# phpDocumentor
+	- mkdir -p docs
+	# PHPUnit
+	- mkdir -p coverage
+
+after_success:
+	- ./vendor/bin/phpdoc
+	- bash .travis_after_script.sh

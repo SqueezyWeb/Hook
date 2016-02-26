@@ -1,21 +1,35 @@
 {
-    "name": "freyja/hook",
-    "description": "A utility to hook callbacks in your code, inspired at WordPress' filters and actions.",
-    "type": "library",
-    "license": "GPLv2+",
-    "keywords": ["php", "callbacks", "freyja", "hook", "filter", "action"],
-    "authors": [
-        {
-            "name": "Mattia Migliorini",
-            "email": "mattia@squeezyweb.com",
-            "role": "Developer",
-            "homepage": "http://deshack.net"
-        }
-    ],
-    "require": {},
-    "autoload": {
-      "psr-4": {
-        "Freyja\\Hook\\": "Lib/"
-      }
+  "name": "freyja/hook",
+  "description": "A utility to hook callbacks in your code, inspired at WordPress' filters and actions.",
+  "type": "library",
+  "license": "GPLv2+",
+  "keywords": ["php", "callbacks", "freyja", "hook", "filter", "action"],
+  "authors": [
+    {
+      "name": "Mattia Migliorini",
+      "email": "mattia@squeezyweb.com",
+      "role": "Developer",
+      "homepage": "http://deshack.net"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.3.9"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8.0",
+    "phpdocumentor/phpdocumentor": "~2.7.0",
+    "zendframework/zend-cache": "~2.2.10",
+    "dompdf/dompdf": "~0.6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Freyja\\Hook\\": "Lib/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "2.0.x-dev"
+    }
+  }
 }
