@@ -1,25 +1,25 @@
 launguage: php
 php:
-	- '5.3'
-	- '5.4'
-	- '5.5'
-	- '5.6'
-	- '7.0'
-	- 'nightly'
-
+- '5.3'
+- '5.4'
+- '5.5'
+- '5.6'
+- '7.0'
+- nightly
+env:
+  global:
+    secure: BoT3I123WhF1aUDvoOfZ9XKUeXEkx/fK7/o2Ad7G4+Eq7Xc9b9/s2D2vQA7fuQIbjTF8tkriaP+rOYaEsAP/dKg0ZQ7DgdrIoNFgPolsAQkWthqLtXuTvsQ49BPy0E+XrVKTOQO7desHr3ekKJbeyDWbdE5fenmp8lZNEpE8z/k33bjzKzhFU2Y1QJEEPQLAts4Bg1M81kCmBRPPEeZCUlK4AQJOjsqE20PLFo5hXyJZvm3fQJipy1uB7mqZdl3jc8qxgffIzkkZufH0rDJ1cIBUNjO8m7MaNgTtC9uCz/xD6Akkz0joLWzqksnatV+cc89BowSzAmPoVJA55Ry8/FzA9Qc0Ew0kW6GA/rkKYdE4VgSTIQSp9aU5E86ZwzBsNpbbgB9NTCx8pEbZkNqv8Ytl6CKfNHwj+oBIC0RfAWH8ZiS+ywCya/qkLAfP0Sr/S+ZdF4awxCmNCWnqFOHg7PBJ28RRrjl/yHz59O1k9peOrm8qJE9q2ymSbkpDDq9rSV+sMiTFZok1A+fKrYsK4S48rtufXCUNmA4vTpx76dclWHMMDYyQam1xerGeyuaS4CXbYnCjJ1W4SePd4s6zrqL1lRKMfVO8YlW4aYb49Fz2nZ9uSgUjdvmQ2fR1ax/Yn5lxaVSagl2/IfHoNMw+0x2spthvUVLBNDNRAgxXRbA=
+notifications:
+  slack:
+    secure: qhEvvHPRKo1iqFTf6UJgmjiJwJ14Vj1/zQfBd/hPPsqftUc+VFdlLbN6x3EBdViLaKNTeV+UAJQLG3/vj6nGA/guVOE+FKf4UtBS30A+Rc4/ikr3WbNbuqOkbHsYzqLkC2gcmYMqW/JOCimyuZVaBn9Uyrad0K8GSBQDLIWElQkfoOA+A/EgzWuIvRTV0ZxqaM0SVapcAWQ5Wq0ILSlyhNZ18N97Xvbsu0eAs9K6/K8N49gI+Bnuoi+4YK2Uz/H4rnTOgyfKd+bXQG5a59+WCBuMx3xcPAo5oSMbap8VOZLEQ5GyPmKjvvMGSkPODZfBCB0+myUp58S0cXwa1lX7EOYQ+iY+dtmElvkPEHwGAM7yXa6iMh7XFbKouaNxsCzFWBTmTZFKJ9auSWGiyuEp97njYvsFN5EcHuaMlkzbbK8fuvw2wCdVaeYAwhP0JqTon0zLX6FJgHgunYLx5m+YfmKxrd4Rt2M1n8eoHVCPAoOnvj4Y1np4FqqHyyuEXUXiNWxT+35Q52VQGV2fOEN+/eGEbfX2OFzIbk8jjvGuwrmm5x3x0Vq4iRR5N5f2oI1OEDrDxAkakTgQ5I/63sYsmkOoboJ+522RRzaGJs3wjKjU2UkR80XWQyYJHFUgeWLeG/va4ALJTVBHndCFkCHReGFlW1Er4YVUxguzhib2Twg=
 before_install:
-	- sudo apt-get install -y graphviz
-	- phpenv config-add xsl.ini
-
+- sudo apt-get install -y graphviz
+- phpenv config-add xsl.ini
 install:
-	- composer install
-
+- composer install
 before_script:
-	# phpDocumentor
-	- mkdir -p docs
-	# PHPUnit
-	- mkdir -p coverage
-
+- mkdir -p docs
+- mkdir -p coverage
 after_success:
-	- ./vendor/bin/phpdoc
-	- bash .travis_after_script.sh
+- "./vendor/bin/phpdoc"
+- bash .travis_after_script.sh
