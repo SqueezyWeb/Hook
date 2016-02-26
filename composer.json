@@ -1,0 +1,21 @@
+{
+    "name": "freyja/hook",
+    "description": "A utility to hook callbacks in your code, inspired at WordPress' filters and actions.",
+    "type": "library",
+    "license": "GPLv2+",
+    "keywords": ["php", "callbacks", "freyja", "hook", "filter", "action"],
+    "authors": [
+        {
+            "name": "Mattia Migliorini",
+            "email": "mattia@squeezyweb.com",
+            "role": "Developer",
+            "homepage": "http://deshack.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "Freyja\\Hook\\": "Lib/"
+      }
+    }
+}
