@@ -20,6 +20,8 @@
     "phpunit/phpunit": "~4.8.0",
     "phpdocumentor/phpdocumentor": "~2.7.0",
     "zendframework/zend-cache": "~2.2.10",
+    "symfony/filesystem": "~2.8.0",
+    "symfony/yaml": "~2.8.0",
     "dompdf/dompdf": "~0.6.0"
   },
   "autoload": {
