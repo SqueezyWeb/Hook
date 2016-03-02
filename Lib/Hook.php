@@ -226,17 +226,20 @@ class Hook implements HookInterface {
 	 * @return bool Whether the function existed before it was removed.
 	 */
 	public function remove( $tag, $callback, $priority = 10 ) {
-		$position = array_search( $callback, $this->hooks[$tag][$priority] );
-
-		if ( false === $position )
+		if (!array_key_exists($tag, $this->hooks) || !array_key_exists($priority, $this->hooks[$tag]))
 			return false;
 
-		unset( $this->hooks[$tag][$priority][$position] );
+		$position = array_search($callback, $this->hooks[$tag][$priority]);
 
-		if ( empty( $this->hooks[$tag][$priority] ) )
-			unset( $this->hooks[$tag][$priority] );
+		if (false === $position)
+			return false;
 
-		unset( $this->merged[$tag] );
+		unset($this->hooks[$tag][$priority][$position]);
+
+		if (empty($this->hooks[$tag][$priority]))
+			unset($this->hooks[$tag][$priority]);
+
+		unset($this->merged[$tag]);
 
 		return true;
 	}
@@ -251,7 +254,7 @@ class Hook implements HookInterface {
 	 * @param int $priority Optional. The priority number to remove.
 	 * @return bool True when finished.
 	 */
-	public function remove_all( $tag, $priority = false ) {
+	public function removeAll( $tag, $priority = false ) {
 		if ( isset( $this->hooks[$tag] ) ) {
 			if ( false !== $priority && isset( $this->hooks[$tag][$priority] ) )
 				unset( $this->hooks[$tag][$priority] );
@@ -278,7 +281,7 @@ class Hook implements HookInterface {
 	}
 
 	/**
-	 * Retrieve the name of a hook currently being processed.
+	 * Whether a hook is currently being processed.
 	 *
 	 * The method `Hook::getCurrent()` only returns the most recent hook being
 	 * executed. `Hook::did()` returns true once the hook is initially processed.
@@ -297,10 +300,10 @@ class Hook implements HookInterface {
 	 * @return bool Whether the hook is currently in the stack.
 	 */
 	public function doing( $tag = null ) {
-		if ( null === $tag )
-			return ! empty( $this->current );
+		if (null === $tag)
+			return !empty($this->current);
 
-		return in_array( $tag, $this->current );
+		return in_array($tag, $this->current);
 	}
 
 	/**

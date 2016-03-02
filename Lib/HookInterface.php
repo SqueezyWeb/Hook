@@ -115,7 +115,7 @@ interface HookInterface {
 	 * @param int $priority Optional. The priority number to remove.
 	 * @return bool True when finished.
 	 */
-	public function remove_all( $tag, $priority = false );
+	public function removeAll( $tag, $priority = false );
 
 	/**
 	 * Retrieve the name of the current hook.
