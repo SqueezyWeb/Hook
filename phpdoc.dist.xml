@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <title>Freyja Hook by SqueezyWeb</title>
+  <parser>
+    <target>docs</target>
+    <markers>
+      <item>TODO</item>
+      <item>FIXME</item>
+    </markers>
+    <extensions>
+      <extension>php</extension>
+    </extensions>
+  </parser>
+  <transformer>
+    <target>docs</target>
+  </transformer>
+  <logging>
+    <level>warn</level>
+    <paths>
+      <default>logs/phpunit-{DATE}.log</default>
+      <errors>logs/phpunit-{DATE}.errors.log</errors>
+    </paths>
+  </logging>
+  <transformations>
+    <template name="responsive-twig" />
+  </transformations>
+  <files>
+    <directory>Lib</directory>
+  </files>
+</phpdoc>
